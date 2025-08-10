@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "@fontsource/roboto/300.css";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/500.css";
+@import "@fontsource/roboto/600.css";
+@import "@fontsource/roboto/700.css";
+
+@import "@fontsource/montserrat/900.css";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  color-scheme: light;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+li {
+  text-decoration: none;
+}
+body {
+  height: 100dvh;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  max-width: 393px;
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: underline;
+  transition: 0.3s;
+}
+a:hover {
+  color: #d5d5d5;
+}
+
+button {
+  cursor: pointer;
+  
+}
+h1{
+  font-size: 24px;
+  font-family: "Montserrat",sans-serif;
+}
+textarea{
+  border: solid 1px #fff
+}
+
+input{
+  outline: none;
+  padding: 0 16px;
+}
+.date-input {
+  position: relative; 
+}
+.date-input::before {
+  content: 'ДД / ММ / ГГГГ'; 
+  position: absolute;
+  left: 10;
+  top: 10;
+  color: oklch(55.1% 0.027 264.364);
+  z-index: 1;
+
+}
+.date-input:focus::before {
+  content: none; 
+} 
