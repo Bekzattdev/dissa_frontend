@@ -10,46 +10,44 @@ const optionsConfig = [
   {
     title: "Как часто ты пьешь алкоголь?",
     choices: DRINK_CHOICES,
-    field: "alcohol"
+    field: "alcohol",
   },
   {
     title: "Как часто ты куришь?",
     choices: SMOKING_CHOICES,
-    field: "smoking"
+    field: "smoking",
   },
   {
     title: "Ты занимаешься спортом?",
     choices: SPORT_CHOICES,
-    field: "sports"
+    field: "sports",
   },
   {
     title: "У тебя есть питомцы?",
     choices: PET_CHOICES,
-    field: "pets"
+    field: "pets",
   },
 ];
 
 const TellSelf = () => {
   const { register, watch, setValue } = useFormContext();
-  
+
   const aboutYou = watch("aboutYou") || {};
   const description = aboutYou.description || "";
 
   const handleSelect = (field: string, value: string) => {
     if (field === "pets") {
-      // Для питомцев - множественный выбор
       const currentPets = [...(aboutYou.pets || [])];
       const index = currentPets.indexOf(value);
-      
+
       if (index > -1) {
         currentPets.splice(index, 1);
       } else {
         currentPets.push(value);
       }
-      
+
       setValue("aboutYou.pets", currentPets);
     } else {
-      // Для остальных - одиночный выбор
       setValue(`aboutYou.${field}`, aboutYou[field] === value ? "" : value);
     }
   };
@@ -76,7 +74,6 @@ const TellSelf = () => {
           Твои привычки похожи на привычки пары? У тебя право первого слова.
         </p>
       </div>
-      
       {optionsConfig.map(({ title, choices, field }) => (
         <div className="flex flex-col gap-2" key={title}>
           <h2 className="text-lg font-medium">{title}</h2>
