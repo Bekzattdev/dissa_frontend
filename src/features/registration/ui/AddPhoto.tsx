@@ -34,32 +34,39 @@ const AddPhoto = () => {
       </p>
 
       <div className="grid grid-cols-3 gap-4">
-        {photos.length > 0 && (
-          <div 
-            className="relative col-span-2 row-span-2 aspect-square bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden"
-          >
-            <img
-              src={URL.createObjectURL(photos[0])}
-              alt="Main photo"
-              className="w-full h-full object-cover"
-            />
+        <div className="col-span-2 row-span-2 aspect-square bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden relative">
+          {photos[0] ? (
+            <>
+              <img
+                src={URL.createObjectURL(photos[0])}
+                alt="Main photo"
+                className="w-full h-full object-cover"
+              />
+              <button
+                type="button"
+                className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center"
+                onClick={() => removePhoto(0)}
+              >
+                &times;
+              </button>
+            </>
+          ) : (
             <button
               type="button"
-              className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center"
-              onClick={() => removePhoto(0)}
+              className="text-gray-400 text-4xl"
+              onClick={() => setIsMenuOpen(true)}
             >
-              &times;
+              +
             </button>
-          </div>
-        )}
-        
-        {Array.from({ length: photos.length > 0 ? 5 : 6 }).map((_, index) => {
-          const photoIndex = photos.length > 0 ? index + 1 : index;
-          
+          )}
+        </div>
+
+        {Array.from({ length: 5 }).map((_, index) => {
+          const photoIndex = index + 1;
           return (
             <div
               key={index}
-              className="relative aspect-square bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden"
+              className="aspect-square bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden relative"
             >
               {photos[photoIndex] ? (
                 <>
@@ -89,7 +96,7 @@ const AddPhoto = () => {
           );
         })}
       </div>
-      
+
       <Button
         className="absolute text-[#ffffffad] border-2 mt-6 bottom-16"
         onClick={() => setIsMenuOpen(true)}
@@ -103,11 +110,13 @@ const AddPhoto = () => {
           className="fixed inset-0 bg-[#0000008b] backdrop-blur-xs bg-opacity-50 flex items-end z-50"
           onMouseDown={() => setIsMenuOpen(false)}
         >
-          <div 
+          <div
             className="bg-white w-full rounded-t-2xl  !p-2 !px-[16px] flex flex-col items-center"
             onMouseDown={(e) => e.stopPropagation()}
           >
-            <div className="w-[36px] h-[4px] bg-[#a7b6c1] rounded-2xl mb-4">-</div>
+            <div className="w-[36px] h-[4px] bg-[#a7b6c1] rounded-2xl mb-4">
+              -
+            </div>
             <div className="w-full flex flex-col gap-4 !py-6">
               <button
                 type="button"

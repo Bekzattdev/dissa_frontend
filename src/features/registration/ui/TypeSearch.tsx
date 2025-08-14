@@ -43,9 +43,9 @@ const TypeSearch = () => {
                 {option.description}
               </p>
             </div>
-            <input 
-              type="radio" 
-              className="accent-purple-500" 
+            <input
+              type="radio"
+              className="accent-purple-500"
               checked={searchType === option.value}
               onChange={() => setValue("searchType", option.value)}
             />
@@ -61,7 +61,7 @@ const TypeSearch = () => {
             <input
               type="radio"
               value="male"
-              className="hidden"
+              className="accent-[#BF26D2]"
               checked={partnerGender === "male"}
               onChange={() => setValue("partnerGender", "male")}
             />
@@ -71,7 +71,7 @@ const TypeSearch = () => {
             <input
               type="radio"
               value="female"
-              className="hidden"
+              className="accent-[#BF26D2]"
               checked={partnerGender === "female"}
               onChange={() => setValue("partnerGender", "female")}
             />
@@ -81,7 +81,7 @@ const TypeSearch = () => {
             <input
               type="radio"
               value="all"
-              className="hidden"
+              className="accent-[#BF26D2]"
               checked={partnerGender === "all"}
               onChange={() => setValue("partnerGender", "all")}
             />

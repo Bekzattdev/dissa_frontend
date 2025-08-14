@@ -57,7 +57,7 @@ const LookingFor = () => {
   return (
     <section className="h-full w-full flex justify-center ">
       <div className="flex flex-col gap-8">
-        <h1 className="">Что ты ищешь?</h1>
+        <h1>Что ты ищешь?</h1>
         <div className="flex flex-wrap justify-between gap-6">
           {heartsArr.map((item, idx) => (
             <div
@@ -69,10 +69,10 @@ const LookingFor = () => {
               }`}
               onClick={() => setValue("lookingFor", item.title)}
             >
-              <img 
-                src={item.logo} 
-                alt="logo" 
-                className="w-[40px] h-[40px] object-contain" 
+              <img
+                src={item.logo}
+                alt="logo"
+                className="w-[40px] h-[40px] object-contain"
               />
               <span>{item.title}</span>
             </div>
